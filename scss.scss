@@ -1,0 +1,53 @@
+@mixin pouet ($tall)
+{
+  border-radius : 150px;
+  height : $tall;
+  width : $tall;
+}
+
+@mixin myShadows ($x, $y, $blur, $color, $b)
+{
+  box-shadow : $x $y $blur $color,
+  $x $y $blur $color inset;
+  border : $b solid $color ;
+}
+
+.kingpouet
+{
+  margin: {
+    top : 10%;
+    bottom : 10%;
+    left : 35%;
+  }
+}
+.ring1 {
+  @include myShadows (3px, 3px, 8px, #e65f00, 5px);
+  @include pouet(50px);
+}
+.ring2
+{
+  @include myShadows (3px, 3px, 8px, #ffcd00, 5px);
+  @include pouet(150px);
+}
+
+.plop
+{
+  align-items: center;
+  position : absolute;
+  left: 35%;
+  bottom: 10%;
+}
+
+@for $i from 1 through 6
+{
+  .ring3-#{$i}
+  {
+    @include myShadows (3px, 3px, 8px, #3a3a39, 5px);
+    margin-left : $i* 25px;
+    border-radius: 50%;
+    height : $i * 10 +  40px;
+    width :  $i * 10 +  40px;
+    position : absolute;
+    left : #{$i}0px ;
+  }
+}
